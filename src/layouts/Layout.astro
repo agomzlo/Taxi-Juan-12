@@ -1,3 +1,8 @@
+---
+import "../styles/global.css";
+import Header from '../sections/Header.astro';
+import Whatsapp from "../icons/Whatsapp.astro";
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +10,20 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Taxi 12 Vélez-Málaga</title>
 	</head>
-	<body>
-		<slot />
+	<body class="relative m-0 max-w-dvw min-h-dvh size-full">
+		<Header />
+		<main class="size-full flex flex-col gap-10 pb-10 lg:gap-20 items-center">
+			<slot />
+		</main>
+		<a 
+			target="_blank"
+			href="https://wa.me/+34614187790?text=Hola,%20quisiera%20información%20sobre%20Taxi%20Juan%2012"
+			class="fixed bottom-2 right-2 rounded-full w-fit p-5 text-white bg-[#25d366] cursor-pointer"
+			rel="noreferrer"
+		>
+			<Whatsapp class="size-7" />
+		</a>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

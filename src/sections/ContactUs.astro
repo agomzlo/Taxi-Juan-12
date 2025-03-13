@@ -1,0 +1,41 @@
+---
+import Email from "../icons/Email.astro";
+import Phone from "../icons/Phone.astro";
+import Whatsapp from "../icons/Whatsapp.astro";
+
+
+---
+<section class="relative size-full flex flex-col items-center lg:max-w-[1024px] px-4 gap-2.5 lg:gap-5">
+    <h2 class="uppercase font-semibold text-2xl lg:text-3xl text-center w-full">Contacta con nosotros</h2>
+    <span class="flex flex-col lg:flex-row gap-4 size-full justify-between">
+        <a href="mailto:soporte@touchphone.es" class="w-full bg-gray-800/75 rounded-md backdrop-blur-md shadow-lg shadow-gray-400">
+            <div class="flex flex-col gap-4 justify-center items-center text-white p-5">
+                <Email class="size-16 lg:size-20" />
+                <p class="uppercase lg:text-xl font-semibold">
+                    Mandanos un email
+                </p>
+            </div>
+        </a>
+        <a href="tel:+34614187790" class="w-full bg-gray-800/75 rounded-md backdrop-blur-md shadow-lg shadow-gray-400">
+            <div class="flex flex-col gap-4 justify-center items-center text-white p-5">
+                <Phone class="size-16 lg:size-20" />
+                <p class="uppercase lg:text-xl font-semibold">
+                    Llamanos
+                </p>
+            </div>
+        </a>
+        <a 
+			target="_blank"
+			href="https://wa.me/+34614187790?text=Hola,%20quisiera%20información%20sobre%20Taxi%20Juan%2012"
+			class="w-full bg-gray-800/75 rounded-md backdrop-blur-md shadow-lg shadow-gray-400"
+			rel="noreferrer"
+		>
+			<div class="flex flex-col gap-4 justify-center items-center text-white p-5">
+                <Whatsapp class="size-16 lg:size-20" />
+                <p class="uppercase lg:text-xl font-semibold">
+                    Mandanos un Whatsapp
+                </p>
+            </div>
+		</a>
+    </span>
+</section>
