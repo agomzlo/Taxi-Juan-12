@@ -1,31 +1,43 @@
 ---
 
 ---
-<span class="w-full overflow-hidden flex flex-row gap-5">
-    <img src="/visa-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/mastercard-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/bizum-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/visa-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/mastercard-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/bizum-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/visa-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/mastercard-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/bizum-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/visa-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/mastercard-logo.png" class="h-6 lg:h-8 w-auto" alt="">
-    <img src="/bizum-logo.png" class="h-6 lg:h-8 w-auto" alt="">
+<span class="w-full overflow-hidden">
+    <div class="flex items-center gap-5 animate-slide">
+        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
+        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
+        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
+        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
+        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
+        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
+        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
+        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
+        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
+        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
+        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
+        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
+        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
+        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
+        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
+        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
+        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
+        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
+    </div>
 </span>
 
 <style>
-    img{
-        animation: slide 5s linear infinite;
-    }
     @keyframes slide {
-        0% {
-            transform: translateX(0%);
+        from {
+            transform: translateX(0);
         }
-        100% {
-            transform: translateX(calc(-300% - calc(3 * 20px)));
+        to {
+            transform: translateX(calc(-50% - 10px));
         }
+    }
+
+    .animate-slide {
+        display: flex;
+        white-space: nowrap;
+        animation: slide 10s linear infinite;
+        width: max-content;
     }
 </style>
