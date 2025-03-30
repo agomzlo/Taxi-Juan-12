@@ -4,7 +4,7 @@ import {services, icons} from "../utils.js";
 ---
 <section id="services" class="size-full flex flex-col items-center lg:max-w-[1024px] gap-4 lg:gap-8 scroll-mt-20 lg:scroll-mt-40">
     <h2 class="uppercase font-semibold text-2xl lg:text-3xl text-center w-full">Ofrecemos...</h2>
-    <div class="w-full grid grid-flow-col auto-cols-[100%] lg:grid-cols-2 gap-4 px-4 overflow-x-auto snap-x snap-mandatory">
+    <div id="scrollContainer" class="w-full grid grid-flow-col auto-cols-[100%] lg:grid-cols-2 gap-4 px-4 overflow-x-auto snap-x snap-mandatory lg:grid-flow-dense">
         {
             services.map((service, index) => {
                 const IconComponent = icons[service.image as keyof typeof icons];
