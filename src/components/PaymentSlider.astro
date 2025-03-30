@@ -1,43 +1,37 @@
 ---
 
 ---
-<span class="w-full overflow-hidden">
-    <div class="flex items-center gap-5 animate-slide">
-        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
-        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
-        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
-        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
-        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
-        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
-        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
-        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
-        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
-        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
-        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
-        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
-        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
-        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
-        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
-        <img src="/visa-logo.png" class="h-8 w-auto" alt="">
-        <img src="/mastercard-logo.png" class="h-8 w-auto" alt="">
-        <img src="/bizum-logo.png" class="h-8 w-auto" alt="">
-    </div>
+<span class="relative w-full overflow-hidden flex flex-row justify-center md:justify-normal gap-5 md:after:absolute md:after:top-0 md:after:w-1/3
+        md:after:h-full md:after:z-10 md:after:left-0 md:after:bg-gradient-to-l md:after:from-transparent md:after:to-white md:before:absolute 
+        md:before:top-0 md:before:w-1/3 md:before:h-full md:before:z-10 md:before:right-0 md:before:bg-gradient-to-r md:before:from-transparent
+        md:before:to-white">
+    <img src="/visa-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/mastercard-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/bizum-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/visa-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/mastercard-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/bizum-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/visa-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/mastercard-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/bizum-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/visa-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/mastercard-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/bizum-logo.png" class="h-8 w-auto hidden md:block slider" alt="">
+    <img src="/visa-logo.png" class="h-6 w-auto md:hidden" alt="">
+    <img src="/mastercard-logo.png" class="h-6 w-auto md:hidden" alt="">
+    <img src="/bizum-logo.png" class="h-6 w-auto md:hidden" alt="">
 </span>
 
 <style>
-    @keyframes slide {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(calc(-50% - 10px));
-        }
+    .slider{
+        animation: slide 5s linear infinite;
     }
-
-    .animate-slide {
-        display: flex;
-        white-space: nowrap;
-        animation: slide 10s linear infinite;
-        width: max-content;
+    @keyframes slide {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-300% - calc(3 * 20px)));
+        }
     }
 </style>
