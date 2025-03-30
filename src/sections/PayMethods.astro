@@ -1,0 +1,13 @@
+---
+import PaymentSlider from "../components/PaymentSlider.astro";
+
+
+---
+<section class="relative size-full flex flex-col items-center lg:max-w-[1024px] gap-4 lg:gap-8 px-4">
+    <div class="absolute inset-0 bg-gradient-to-l -z-10 from-white via-gray-300 to-white"></div>
+    <div class="flex flex-col size-full my-[1px] py-10 bg-white items-center gap-4 lg:gap-8">
+        <h2 class="uppercase font-semibold text-2xl lg:text-3xl text-center w-full">Llega Donde Quieras, Paga Como Quieras</h2>
+        <p>En nuestro servicio de taxi, tu comodidad es lo primero. Aceptamos múltiples métodos de pago: <strong>Visa, Mastercard, Bizum, efectivo y más</strong>. Viaja sin preocupaciones y elige la forma de pago que mejor te convenga. ¡Tu trayecto, tu elección!</p>
+        <PaymentSlider />
+    </div>
+</section>

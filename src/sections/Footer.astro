@@ -1,0 +1,40 @@
+---
+import Facebook from "../icons/Facebook.astro";
+import Instgram from "../icons/Instgram.astro";
+import Whatsapp from "../icons/Whatsapp.astro";
+
+
+---
+
+<footer class="relative lg:w-[1200px] size-full flex flex-col items-center justify-center gap-4">
+    <div class="absolute inset-0 bg-gradient-to-l -z-10 from-white via-gray-300 to-white"></div>
+    <div class="flex flex-col lg:flex-row justify-around size-full mt-0.5 pt-10 bg-white items-center gap-4 lg:gap-8">
+        <p>© 2025 Taxi Juan 12 | Todos los derechos reservados</p>
+        <span class="flex flex-row gap-4">
+            <a 
+                target="_blank"
+                class="text-black hover:text-yellow-taxi"
+                href="https://wa.me/+34622057650?text=Hola,%20quisiera%20información%20sobre%20Taxi%20Juan%2012"
+                rel="noreferrer noopenner"
+            >
+                <Whatsapp class="size-8" />
+            </a>
+            <a 
+                target="_blank"
+                class="text-black hover:text-yellow-taxi"
+                href="https://www.instagram.com/taxi12velezmalaga?igsh=Mm52cTNpbzl0c3M0&utm_source=qr"
+                rel="noreferrer noopener"
+            >
+                <Instgram class="size-8" />
+            </a>
+            <a 
+                target="_blank"
+                class="text-black hover:text-yellow-taxi"
+                href="https://www.facebook.com/share/1B9hT9eMsT/?mibextid=wwXIfr"
+                rel="noreferrer noopener"
+            >
+                <Facebook class="size-8" />
+            </a>
+        </span>
+    </div>
+</footer>
