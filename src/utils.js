@@ -12,7 +12,7 @@ import SecurePin from "./icons/SecurePin.astro";
 export const services = [
     {
       image: "Buildings",
-      title: "Traslados locales y provinciles",
+      title: "Traslados locales y provinciales",
       description: "Viajes sin límite a cualquier localidad de la provincia de Málaga"
     },
     {
