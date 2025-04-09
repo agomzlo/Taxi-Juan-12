@@ -18,13 +18,14 @@ const HeroSlider = () => {
       effect="fade"
       fadeEffect={{ crossFade: true }}
       speed={1500}
+      className='size-full'
     >
       {images.map((image, index) => (
-        <SwiperSlide key={index} style={{ height: 'auto' }}>
+        <SwiperSlide key={index} className='size-full'>
           <img
             src={image}
             alt="Aeropuerto de Málaga"
-            className="size-full object-cover object-center"
+            className="size-full object-cover object-bottom"
           />
         </SwiperSlide>
       ))}
