@@ -4,36 +4,90 @@
 <section class="size-full lg:max-w-[1024px]">
     <div class="flex flex-col size-full my-[1px] bg-white items-center gap-4 lg:gap-8">
         <h2 class="uppercase font-semibold text-2xl lg:text-3xl text-center w-full">Contacta con nosotros</h2>
-        <form class="flex flex-col size-full bg-white">
-            <span class="flex flex-col lg:flex-row size-full">
-                <div class="bg-white p-4 rounded-lg w-full">
+        <form id="contactForm" class="flex flex-col size-full bg-white px-4 gap-5">
+            <span class="flex flex-col lg:flex-row size-full gap-5">
+                <div class="bg-white rounded-lg w-full">
                     <div class="relative bg-inherit">
                         <input type="text" id="name" name="name" class="peer bg-transparent h-10 w-full rounded-lg text-gray-700 placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-black focus:outline-none" placeholder="Nombre y Apellidos"/>
                         <label for="name" class="absolute cursor-text left-0 -top-3 text-sm text-gray-500 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-700 peer-focus:text-sm transition-all">Nombre y Apellidos</label>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg w-full">
+                <div class="bg-white rounded-lg w-full">
                     <div class="relative bg-inherit">
                         <input type="text" id="phone" name="phone" class="peer bg-transparent h-10 w-full rounded-lg text-gray-700 placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-black focus:outline-none" placeholder="Número de teléfono"/>
                         <label for="phone" class="absolute cursor-text left-0 -top-3 text-sm text-gray-500 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-700 peer-focus:text-sm transition-all">Número de teléfono</label>
                     </div>
                 </div>
             </span>
-            <div class="bg-white p-4 rounded-lg w-full">
+            <div class="bg-white rounded-lg w-full">
                 <div class="relative bg-inherit">
                     <input type="text" id="email" name="email" class="peer bg-transparent h-10 w-full rounded-lg text-gray-700 placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-black focus:outline-none" placeholder="Correo electrónico"/>
                     <label for="email" class="absolute cursor-text left-0 -top-3 text-sm text-gray-500 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-700 peer-focus:text-sm transition-all">Correo electrónico</label>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded-lg w-full">
+            <div class="bg-white rounded-lg w-full">
                 <div class="relative bg-inherit">
                     <textarea id="message" name="message" class="peer bg-transparent w-full h-32 rounded-lg text-gray-700 placeholder-transparent ring-2 p-2 resize-none ring-gray-500 focus:ring-black focus:outline-none" placeholder="Mensaje"/>
                     <label for="message" class="absolute cursor-text left-0 -top-3 text-sm text-gray-500 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-700 peer-focus:text-sm transition-all">Mensaje</label>
                 </div>
             </div>
             <span class="flex flex-row justify-center lg:justify-end">
-                <button class="lg:max-w-64 size-full border-2 border-gray-700 hover:bg-gray-700 rounded-md hover:text-white font-semibold mx-4 p-2 text-gray-700 bg-white transition-all cursor-pointer">Enviar Mensaje</button>
+                <button class="md:max-w-64 size-full border-2 border-black hover:bg-black rounded-md hover:text-white font-semibold p-2 text-black bg-white transition-all cursor-pointer">Enviar Mensaje</button>
             </span>
         </form>
     </div>
 </section>
+
+<script>
+    import { toast } from "wc-toast";
+
+    const contactForm = document.getElementById("contactForm") as HTMLFormElement;
+    
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        try{
+            if (!data.name || !data.phone || !data.email || !data.message ) {
+                throw new Error('Rellena los campos obligatorios');
+            }
+
+            if (!data.name.toString().match(/^[a-zA-Z\D]{3,}$/)){
+                throw new Error('Nombre no valido');
+            }
+
+            if (!data.phone){
+                data.phone_prefix = "";
+                data.phone = "No definido";
+            }
+
+            if (!data.phone.toString().match(/^[0-9]{7,13}$|^No definido$/)){
+                throw new Error('Teléfono no valido');
+            }
+            
+            if (!data.email.toString().match(/^[a-zA-Z0-9._%+'-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)){
+                throw new Error('Email no valido');
+            }
+            
+            if (!data.subject) data.subject = "No definido";
+
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok){
+                toast.success("Mensaje enviado correctamente", {duration: 2500});
+                form.reset()
+            }
+        } catch (error) {
+            if (error) toast.error(error.toString(), {duration: 2500});
+        }
+    });
+</script>

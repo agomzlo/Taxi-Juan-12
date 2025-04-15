@@ -7,3 +7,19 @@
         <slot name="description" />
     </div>
 </span>
+
+<style>
+    span {
+        animation: header-blur-scroll 0.3s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+    }
+    @keyframes service-scroll {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0%);
+        }
+    }
+</style>
