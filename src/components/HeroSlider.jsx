@@ -5,11 +5,26 @@ import 'swiper/css/effect-fade';
 
 const HeroSlider = () => {
   const images = [
-    '/aeropuerto-malaga.webp',
-    '/velez-malaga.webp',
-    '/estacion-autobus-malaga.webp',
-    '/torre-del-mar.webp',
-    '/maria-zambrano-malaga.webp',
+    <img
+      src='/aeropuerto-malaga.webp'
+      alt="Aeropuerto de Málaga"
+      className="size-full object-cover object-left-bottom md:object-center"/>,
+      <img
+      src='/velez-malaga.webp'
+      alt="Vélez-Málaga"
+      className="size-full object-cover object-center-bottom md:object-center"/>,
+      <img
+      src='/estacion-autobus-malaga.webp'
+      alt="Estación de Autobuses de Málaga"
+      className="size-full object-cover object-left-bottom md:object-center"/>,
+      <img
+      src='/torre-del-mar.webp'
+      alt="Torre del Mar"
+      className="size-full object-cover object-left-bottom md:object-center"/>,
+      <img
+      src='/maria-zambrano-malaga.webp'
+      alt="Estación Maria Zambrano de Málaga"
+      className="size-full object-cover object-left-bottom md:object-center"/>,
   ];
 
   return (
@@ -24,11 +39,7 @@ const HeroSlider = () => {
     >
       {images.map((image, index) => (
         <SwiperSlide key={index} className='size-full'>
-          <img
-            src={image}
-            alt="Aeropuerto de Málaga"
-            className="size-full object-cover object-right-bottom md:object-center"
-          />
+          {image}
         </SwiperSlide>
       ))}
     </Swiper>
