@@ -1,25 +1,28 @@
 ---
 import ServiceCard from "../components/ServiceCard.astro";
-import Right from "../icons/Right.astro";
 import {services, icons} from "../utils.js";
 ---
-<section id="services" class="relative size-full flex flex-col items-center lg:max-w-[1024px] gap-4 lg:gap-8 scroll-mt-20 lg:scroll-mt-40">
+<section id="services" class="relative size-full flex flex-col items-center lg:max-w-[1024px] gap-4 lg:gap-8 scroll-mt-20 lg:scroll-mt-40 ">
     <h2 class="uppercase font-semibold text-2xl lg:text-3xl text-center w-full">Nuestros Servicios</h2>
-    <div id="scrollContainer" class="relative w-full flex flex-col lg:grid lg:grid-cols-2 gap-4 px-4 overflow-x-auto snap-x snap-mandatory lg:grid-flow-dense">
-        {
-            services.map((service) => {
-                const IconComponent = icons[service.image as keyof typeof icons];
-                return (
-                    <ServiceCard>
-                        <IconComponent slot="image" class="size-20" />
-                        <h2 slot="title" class="uppercase font-semibold">{service.title}</h2>
-                        <p slot="description">{service.description}</p>
-                    </ServiceCard>
-                )
-            })
-        }
-        
-    </div>
+    <span class="relative size-full after:absolute after:top-0 after:w-16 after:h-full after:z-10 
+    after:left-0 after:bg-gradient-to-l after:from-transparent after:to-white before:absolute before:top-0 before:w-16 before:h-full before:z-10 
+    before:right-0 before:bg-gradient-to-r before:from-transparent before:to-white before:animate-pulse after:animate-pulse lg:before:bg-transparent
+    lg:after:bg-transparent">
+        <ul class="relative w-full flex flex-row items-stretch lg:grid lg:grid-cols-2 gap-4 px-4 overflow-x-auto snap-x snap-mandatory lg:grid-flow-dense">
+            {
+                services.map((service) => {
+                    const IconComponent = icons[service.image as keyof typeof icons];
+                    return (
+                        <ServiceCard>
+                            <IconComponent slot="image" class="size-16 lg:size-20" />
+                            <h2 slot="title" class="uppercase font-semibold text-sm lg:text-base">{service.title}</h2>
+                            <p slot="description" class="text-sm lg:text-base">{service.description}</p>
+                        </ServiceCard>
+                    )
+                })
+            }
+        </ul>
+    </span>
     <span class="size-full flex flex-col lg:flex-row justify-between items-center px-4 gap-4">
         <p class="font-semibold text-center lg:text-xl">No esperes más, tu taxi está a solo una llamada <a href="tel:+34622057650" class="hover:text-yellow-taxi transition-all">622057650</a></p>
         <a href="/" class="h-full grid place-items-center border border-gray-300 rounded-md p-2 hover:bg-gray-100">
@@ -27,7 +30,4 @@ import {services, icons} from "../utils.js";
             <div class="font-semibold">Déjanos tu valoración</div>
         </a>
     </span>
-    <div class="absolute top-1/2 right-0 z-10 opacity-25">
-        <Right />
-    </div>
 </section>

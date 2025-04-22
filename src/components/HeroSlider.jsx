@@ -7,7 +7,9 @@ const HeroSlider = () => {
   const images = [
     '/aeropuerto-malaga.webp',
     '/velez-malaga.webp',
+    '/estacion-autobus-malaga.webp',
     '/torre-del-mar.webp',
+    '/maria-zambrano-malaga.webp',
   ];
 
   return (
@@ -25,7 +27,7 @@ const HeroSlider = () => {
           <img
             src={image}
             alt="Aeropuerto de Málaga"
-            className="size-full object-cover object-bottom"
+            className="size-full object-cover object-right-bottom md:object-center"
           />
         </SwiperSlide>
       ))}
